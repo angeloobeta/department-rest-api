@@ -28,4 +28,11 @@ import java.util.Optional;
     }
 
 
+    @DeleteMapping("/delete-departmentById/{id}")
+    public String deleteById(@PathVariable("id") Long departmentId){
+        departmentService.deleteDepartmentById(departmentId);
+        return "Department deleted successfully";
+    }
+
+
 }
