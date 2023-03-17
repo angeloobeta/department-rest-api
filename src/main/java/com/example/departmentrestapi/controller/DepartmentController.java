@@ -2,15 +2,11 @@ package com.example.departmentrestapi.controller;
 
 import com.example.departmentrestapi.entity.Department;
 import com.example.departmentrestapi.services.DepartmentService;
-import com.example.departmentrestapi.services.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController public class DepartmentController {
 
@@ -22,8 +18,13 @@ import java.util.List;
     }
 
     @GetMapping("/get-department")
-    public List<Department> getDepartment(@RequestBody Department department){
+    public List<Department> getDepartment(){
         return departmentService.getAllDepartment();
+    }
+
+    @GetMapping("/get-departmentById/{id}")
+    public Optional<Department> getDepartmentById(@PathVariable("id") Long departmentId){
+        return departmentService.getDepartmentById(departmentId);
     }
 
 

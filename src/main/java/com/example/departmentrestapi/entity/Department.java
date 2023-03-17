@@ -65,4 +65,5 @@ public class Department {
     public void setDepartmentCode(String departmentCode) {
         this.departmentCode = departmentCode;
     }
+
 }
