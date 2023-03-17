@@ -5,6 +5,9 @@ import com.example.departmentrestapi.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
@@ -17,5 +20,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department saveToDepartment(Department department) {
         return departmentRepository.save(department);
+    }
+
+    /**
+     * @return All department
+     */
+    @Override
+    public  List<Department> getAllDepartment() {
+        return  departmentRepository.findAll();
     }
 }
