@@ -23,8 +23,13 @@ import java.util.Optional;
     }
 
     @GetMapping("/get-departmentById/{id}")
-    public Optional<Department> getDepartmentById(@PathVariable("id") Long departmentId){
+    public Optional<Department> findDepartmentById(@PathVariable("id") Long departmentId){
         return departmentService.getDepartmentById(departmentId);
+    }
+
+    @GetMapping("/get-departmentById/{departmentName}")
+    public Department findDepartmentByName(@PathVariable("departmentName") String departmentName){
+        return departmentService.findByDepartmentName(departmentName);
     }
 
 
@@ -32,6 +37,11 @@ import java.util.Optional;
     public String deleteById(@PathVariable("id") Long departmentId){
         departmentService.deleteDepartmentById(departmentId);
         return "Department deleted successfully";
+    }
+
+    @PutMapping("/update-department/{id}")
+    public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department){
+        return departmentService.updateDepartment(departmentId, department);
     }
 
 
