@@ -17,4 +17,6 @@ public interface DepartmentService {
     Department updateDepartment(Long departmentId, Department department);
 
     Department findByDepartmentName(String departmentName);
+
+    Department findByDepartmentNameIgnoreCase(String departName);
 }
