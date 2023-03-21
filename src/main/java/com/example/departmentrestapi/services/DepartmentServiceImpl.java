@@ -1,6 +1,7 @@
 package com.example.departmentrestapi.services;
 
 import com.example.departmentrestapi.entity.Department;
+import com.example.departmentrestapi.error.DepartmentErrorException;
 import com.example.departmentrestapi.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     /**
      * @return
      */
-    public Optional<Department> getDepartmentById(Long departmentId) {
-        return Optional.of(departmentRepository.findById(departmentId).get());
+    public Department getDepartmentById(Long departmentId) throws DepartmentErrorException {
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        if(!department.isPresent())
+            throw new DepartmentErrorException("Department not found");
+
+        return department.get();
     }
 
     /**

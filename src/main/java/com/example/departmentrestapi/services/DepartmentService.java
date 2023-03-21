@@ -1,6 +1,7 @@
 package com.example.departmentrestapi.services;
 
 import com.example.departmentrestapi.entity.Department;
+import com.example.departmentrestapi.error.DepartmentErrorException;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +11,7 @@ public interface DepartmentService {
 
     List<Department> getAllDepartment();
 
-    Optional<Department> getDepartmentById(Long departmentId);
+    Department getDepartmentById(Long departmentId);
 
     void deleteDepartmentById(Long departmentId);
 
