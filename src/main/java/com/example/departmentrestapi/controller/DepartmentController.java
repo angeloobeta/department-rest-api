@@ -24,7 +24,7 @@ import java.util.Optional;
         return departmentService.saveToDepartment(department);
     }
 
-    @GetMapping("/get-department")
+    @GetMapping("/get-AllDepartment")
     public List<Department> getDepartment(){
         LOGGER.info("Inside getDepartment Controller");
         return departmentService.getAllDepartment();
@@ -53,5 +53,10 @@ import java.util.Optional;
         return departmentService.updateDepartment(departmentId, department);
     }
 
+    @DeleteMapping("/delete-departmentByAll")
+    public String deleteById() throws DepartmentErrorException{
+        String deleteMessage = departmentService.deleteAllDepartment();
+        return deleteMessage;
+    }
 
 }

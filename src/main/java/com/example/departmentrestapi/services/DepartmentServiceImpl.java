@@ -85,4 +85,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     public Department findByDepartmentNameIgnoreCase(String departmentName){
         return departmentRepository.findByDepartmentNameIgnoreCase(departmentName);
     }
+
+    /**
+     * @return
+     */
+    @Override
+    public String deleteAllDepartment() {
+        departmentRepository.deleteAll();
+        return "All the data in database have been wide-out successfully";
+    }
 }

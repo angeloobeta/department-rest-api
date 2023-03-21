@@ -20,4 +20,6 @@ public interface DepartmentService {
     Department findByDepartmentName(String departmentName);
 
     Department findByDepartmentNameIgnoreCase(String departName);
+
+    String deleteAllDepartment();
 }
